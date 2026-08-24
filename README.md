@@ -112,7 +112,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Open [http://localhost:3000](https://fixitnow-frontend-sable.vercel.app) to view the app.
 
 ### Build for Production
 
@@ -129,7 +129,7 @@ Create a `.env` file in the project root (see `.env.example`):
 
 ```env
 # Backend API URL
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=https://fixitnow-gamma.vercel.app
 
 # JWT secrets — must match the backend's .env exactly
 JWT_ACCESS_SECRET=access_secret
