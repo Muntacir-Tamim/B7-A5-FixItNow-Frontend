@@ -179,3 +179,5 @@ export default async function FindTechniciansPage({
     </div>
   );
 }
+
+// Technician discovery page: lets customers search and filter verified technicians.
