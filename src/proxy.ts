@@ -121,3 +121,6 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: ["/((?!api|_next/static|favicon.ico|_next/image|.*\\.png$).*)"],
 };
+
+// Middleware proxy: silently refreshes expired JWT access tokens using the
+// refresh token, without interrupting the user's navigation.
