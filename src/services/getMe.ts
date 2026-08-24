@@ -23,3 +23,5 @@ export const getMe = async () => {
   const result = await res.json();
   return result;
 };
+
+// API service layer: centralized functions for communicating with the FixItNow backend.
