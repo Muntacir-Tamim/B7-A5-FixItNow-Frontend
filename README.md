@@ -112,7 +112,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](https://fixitnow-frontend-sable.vercel.app) to view the app.
+Open [ http://localhost:3000](https://fixitnow-frontend-sable.vercel.app ) to view the app.
 
 ### Build for Production
 
