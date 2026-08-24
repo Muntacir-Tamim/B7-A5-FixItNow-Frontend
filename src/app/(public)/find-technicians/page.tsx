@@ -80,7 +80,7 @@ export default async function FindTechniciansPage({
                     unoptimized
                     className="rounded-full border-4 border-background object-cover shadow-md"
                   />
-                  {profile?.isApproved && (
+                  {profile?.isVerified && (
                     <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white bg-green-500" />
                   )}
                 </div>
@@ -91,7 +91,7 @@ export default async function FindTechniciansPage({
                     <h2 className="line-clamp-1 text-lg font-semibold">
                       {tech.name ?? "Technician"}
                     </h2>
-                    {profile?.isApproved && (
+                    {profile?.isVerified && (
                       <BadgeCheck className="h-4 w-4 text-blue-500" />
                     )}
                   </div>
@@ -105,10 +105,7 @@ export default async function FindTechniciansPage({
                   <div className="mt-1 flex items-center justify-center gap-1 text-xs text-muted-foreground">
                     <MapPin className="h-3 w-3" />
                     <span className="truncate">
-                      {profile?.city ??
-                        profile?.district ??
-                        profile?.address ??
-                        "Bangladesh"}
+                      {profile?.location ?? "Bangladesh"}
                     </span>
                   </div>
                 </div>
@@ -127,25 +124,15 @@ export default async function FindTechniciansPage({
                   </div>
                 )}
 
-                {/* Experience + Rate */}
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  <div className="rounded-lg border p-2 text-center">
+                {/* Experience */}
+                <div className="mt-3 flex justify-center">
+                  <div className="rounded-lg border p-2 text-center w-full max-w-[140px]">
                     <Briefcase className="mx-auto mb-1 h-4 w-4 text-primary" />
                     <p className="text-sm font-semibold">
-                      {profile?.yearsOfExperience ?? 0} yrs
+                      {profile?.experience ?? 0} yrs
                     </p>
                     <p className="text-[11px] text-muted-foreground">
                       Experience
-                    </p>
-                  </div>
-
-                  <div className="rounded-lg border p-2 text-center">
-                    <Wallet className="mx-auto mb-1 h-4 w-4 text-primary" />
-                    <p className="text-sm font-semibold">
-                      ৳{profile?.hourlyRate ?? 0}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      Per Hour
                     </p>
                   </div>
                 </div>
@@ -179,5 +166,3 @@ export default async function FindTechniciansPage({
     </div>
   );
 }
-
-// Technician discovery page: lets customers search and filter verified technicians.

@@ -6,7 +6,6 @@ import {
   Receipt,
 } from "lucide-react";
 
-
 import {
   Card,
   CardContent,
@@ -80,60 +79,38 @@ export default async function MyPayments() {
                         {payment.bookingId.slice(0, 8)}...
                       </TableCell>
 
-                      <TableCell>
-                        {payment.currency} {payment.amount}
-                      </TableCell>
+                      <TableCell>${payment.amount}</TableCell>
 
                       <TableCell>
-                        <Badge variant="secondary">
-                          {payment.provider}
-                        </Badge>
+                        <Badge variant="secondary">{payment.provider}</Badge>
                       </TableCell>
 
                       <TableCell>{payment.method}</TableCell>
 
                       <TableCell>
-                        {payment.status === "PAID" && (
+                        {payment.status === "COMPLETED" && (
                           <Badge className="gap-1">
                             <CircleCheckBig className="h-3.5 w-3.5" />
-                            Paid
+                            Completed
                           </Badge>
                         )}
 
                         {payment.status === "PENDING" && (
-                          <Badge
-                            variant="secondary"
-                            className="gap-1"
-                          >
+                          <Badge variant="secondary" className="gap-1">
                             <Clock3 className="h-3.5 w-3.5" />
                             Pending
                           </Badge>
                         )}
 
                         {payment.status === "FAILED" && (
-                          <Badge
-                            variant="destructive"
-                            className="gap-1"
-                          >
+                          <Badge variant="destructive" className="gap-1">
                             <CircleX className="h-3.5 w-3.5" />
                             Failed
                           </Badge>
                         )}
-
-                        {payment.status === "CANCELLED" && (
-                          <Badge
-                            variant="outline"
-                            className="gap-1"
-                          >
-                            Cancelled
-                          </Badge>
-                        )}
                       </TableCell>
 
-                      <TableCell>
-                        {/* {payment.transactionId ?? "-"} */}
-                        {payment.stripeCustomerId ?? "-"}
-                      </TableCell>
+                      <TableCell>{payment.transactionId ?? "-"}</TableCell>
 
                       <TableCell>
                         {new Date(payment.createdAt).toLocaleDateString()}

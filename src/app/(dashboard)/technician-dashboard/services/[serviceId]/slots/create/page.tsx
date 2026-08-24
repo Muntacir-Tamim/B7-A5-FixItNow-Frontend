@@ -40,7 +40,7 @@ export default async function AddServiceBookingSlotsPage({ params }: Props) {
         </p>
       </div>
 
-      <AddBookingSlotForm technicianProfileId={technicianProfileId} />
+      <AddBookingSlotForm />
     </div>
   );
 }

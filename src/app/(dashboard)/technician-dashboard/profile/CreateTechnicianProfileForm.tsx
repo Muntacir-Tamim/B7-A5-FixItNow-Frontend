@@ -48,12 +48,10 @@ export default function CreateTechnicianProfileForm() {
     const fd = new FormData(e.currentTarget);
 
     const payload = {
-      bio: (fd.get("bio") as string) || undefined,
-      skills: skills.length > 0 ? skills : undefined,
-      experience: fd.get("experience")
-        ? Number(fd.get("experience"))
-        : undefined,
-      location: (fd.get("location") as string) || undefined,
+      bio: (fd.get("bio") as string) || "",
+      skills: skills,
+      experience: fd.get("experience") ? Number(fd.get("experience")) : 0,
+      location: (fd.get("location") as string) || "",
     };
 
     try {
