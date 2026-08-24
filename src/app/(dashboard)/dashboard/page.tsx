@@ -1,9 +1,21 @@
 import Link from "next/link";
 import {
-  CalendarDays, Clock3, Wrench, CheckCircle2, CreditCard, Star, ArrowRight,
+  CalendarDays,
+  Clock3,
+  Wrench,
+  CheckCircle2,
+  CreditCard,
+  Star,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import TodayDate from "../_components/TodayDate";
 import { getMe } from "@/services/getMe";
 import { getMyBookings } from "../_actions/getMyBookings";
@@ -19,24 +31,65 @@ export default async function CustomerDashboardHome() {
 
   const stats = {
     total: bookings.length,
-    pending: bookings.filter((b: { status: string }) => b.status === "REQUESTED").length,
-    inProgress: bookings.filter((b: { status: string }) => b.status === "IN_PROGRESS").length,
-    completed: bookings.filter((b: { status: string }) => b.status === "COMPLETED").length,
+    pending: bookings.filter(
+      (b: { status: string }) => b.status === "REQUESTED",
+    ).length,
+    inProgress: bookings.filter(
+      (b: { status: string }) => b.status === "IN_PROGRESS",
+    ).length,
+    completed: bookings.filter(
+      (b: { status: string }) => b.status === "COMPLETED",
+    ).length,
     totalSpent: bookings
       .filter((b: { status: string }) =>
-        ["PAID", "IN_PROGRESS", "COMPLETED"].includes(b.status)
+        ["PAID", "IN_PROGRESS", "COMPLETED"].includes(b.status),
       )
-      .reduce((sum: number, b: { totalAmount?: number }) => sum + (b.totalAmount || 0), 0),
-    reviews: bookings.filter((b: { review?: unknown }) => b.review != null).length,
+      .reduce(
+        (sum: number, b: { totalAmount?: number }) =>
+          sum + (b.totalAmount || 0),
+        0,
+      ),
+    reviews: bookings.filter((b: { review?: unknown }) => b.review != null)
+      .length,
   };
 
   const statCards = [
-    { title: "Total Bookings", value: stats.total, description: "All time", icon: CalendarDays },
-    { title: "Pending", value: stats.pending, description: "Awaiting confirmation", icon: Clock3 },
-    { title: "In Progress", value: stats.inProgress, description: "Currently active", icon: Wrench },
-    { title: "Completed", value: stats.completed, description: "Finished jobs", icon: CheckCircle2 },
-    { title: "Total Spent", value: `$${stats.totalSpent.toFixed(2)}`, description: "Lifetime", icon: CreditCard },
-    { title: "Reviews Given", value: stats.reviews, description: "Submitted", icon: Star },
+    {
+      title: "Total Bookings",
+      value: stats.total,
+      description: "All time",
+      icon: CalendarDays,
+    },
+    {
+      title: "Pending",
+      value: stats.pending,
+      description: "Awaiting confirmation",
+      icon: Clock3,
+    },
+    {
+      title: "In Progress",
+      value: stats.inProgress,
+      description: "Currently active",
+      icon: Wrench,
+    },
+    {
+      title: "Completed",
+      value: stats.completed,
+      description: "Finished jobs",
+      icon: CheckCircle2,
+    },
+    {
+      title: "Total Spent",
+      value: `$${stats.totalSpent.toFixed(2)}`,
+      description: "Lifetime",
+      icon: CreditCard,
+    },
+    {
+      title: "Reviews Given",
+      value: stats.reviews,
+      description: "Submitted",
+      icon: Star,
+    },
   ];
 
   return (
@@ -61,7 +114,10 @@ export default async function CustomerDashboardHome() {
         {statCards.map((stat) => {
           const Icon = stat.icon;
           return (
-            <Card key={stat.title} className="transition-all hover:-translate-y-1 hover:shadow-lg">
+            <Card
+              key={stat.title}
+              className="transition-all hover:-translate-y-1 hover:shadow-lg"
+            >
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <div>
                   <CardDescription>{stat.title}</CardDescription>
@@ -72,7 +128,9 @@ export default async function CustomerDashboardHome() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{stat.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {stat.description}
+                </p>
               </CardContent>
             </Card>
           );
@@ -81,3 +139,5 @@ export default async function CustomerDashboardHome() {
     </div>
   );
 }
+
+// Customer dashboard: view bookings, payments, reviews, and profile settings.
