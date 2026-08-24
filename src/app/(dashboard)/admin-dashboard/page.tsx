@@ -277,3 +277,5 @@ export default async function AdminDashboardHome() {
     </div>
   );
 }
+
+// Admin dashboard: manage users, service categories, and platform-wide analytics.
