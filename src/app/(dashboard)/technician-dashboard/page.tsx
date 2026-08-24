@@ -338,3 +338,5 @@ export default async function TechnicianDashboardPage() {
     </div>
   );
 }
+
+// Technician dashboard: manage services, availability slots, bookings, and earnings.
