@@ -147,3 +147,6 @@ export default function Login() {
     </Container>
   );
 }
+
+// Authentication pages: handles user login and registration flows.
+// Uses JWT-based auth with HttpOnly cookies set by the backend.
