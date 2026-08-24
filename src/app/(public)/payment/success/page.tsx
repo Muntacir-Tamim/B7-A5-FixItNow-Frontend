@@ -46,3 +46,5 @@ export default async function PaymentSuccessPage({
     </div>
   );
 }
+
+// Payment result pages: shown after Stripe/SSLCommerz checkout completes or is cancelled.
