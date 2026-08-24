@@ -19,3 +19,5 @@ export const createServiceSchema = z.object({
 });
 
 export type CreateServiceFormData = z.infer<typeof createServiceSchema>;
+
+// Zod validation schemas used with React Hook Form across the app.
