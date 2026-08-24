@@ -94,3 +94,5 @@ export interface BookingDetailsProps {
     comment: string;
   } | null;
 }
+
+// Shared TypeScript types and interfaces used across components and services.
