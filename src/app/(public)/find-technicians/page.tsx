@@ -80,7 +80,7 @@ export default async function FindTechniciansPage({
                     unoptimized
                     className="rounded-full border-4 border-background object-cover shadow-md"
                   />
-                  {profile?.isVerified && (
+                  {tech.isVerified && (
                     <span className="absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white bg-green-500" />
                   )}
                 </div>
@@ -91,7 +91,7 @@ export default async function FindTechniciansPage({
                     <h2 className="line-clamp-1 text-lg font-semibold">
                       {tech.name ?? "Technician"}
                     </h2>
-                    {profile?.isVerified && (
+                    {tech.isVerified && (
                       <BadgeCheck className="h-4 w-4 text-blue-500" />
                     )}
                   </div>
@@ -105,7 +105,7 @@ export default async function FindTechniciansPage({
                   <div className="mt-1 flex items-center justify-center gap-1 text-xs text-muted-foreground">
                     <MapPin className="h-3 w-3" />
                     <span className="truncate">
-                      {profile?.location ?? "Bangladesh"}
+                      {profile?.city ?? profile?.district ?? "Bangladesh"}
                     </span>
                   </div>
                 </div>
