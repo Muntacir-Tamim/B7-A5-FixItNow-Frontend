@@ -10,7 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { FolderOpen, Tag } from "lucide-react";
 import Link from "next/link";
-import { getAllCategories } from "../_actions/getAllCategories";
+import { getAllCategories } from "../(public)/_actions/getAllCategories";
 
 export default async function Categories() {
   const result = await getAllCategories();
